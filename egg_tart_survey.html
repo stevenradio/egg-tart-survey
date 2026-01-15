@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蛋撻試吃問卷 - KFC vs 拿波里披薩</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+        }
+        
+        .question-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        
+        .option {
+            display: block;
+            margin: 8px 0;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-radius: 6px;
+        }
+        
+        .option:hover {
+            background: #e8eaf6;
+        }
+        
+        .rating-container {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .rating-option {
+            flex: 1;
+            min-width: 80px;
+            text-align: center;
+        }
+        
+        .rating-option input[type="radio"] {
+            display: none;
+        }
+        
+        .rating-label {
+            display: block;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .rating-option input[type="radio"]:checked + .rating-label {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+        
+        .rating-label:hover {
+            border-color: #667eea;
+        }
+        
+        textarea,
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        textarea:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .brand-reveal {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin: 10px 0;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            color: #155724;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        
+        .setup-info {
+            background: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .setup-info h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .rating-container {
+                gap: 8px;
+            }
+            
+            .rating-label {
+                padding: 10px 5px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🥧 蛋撻試吃問卷</h1>
+        <p class="subtitle">KFC vs 拿波里披薩 盲測評比</p>
+        
+        <div class="setup-info">
+            <h3>📝 設定 Google Sheets API</h3>
+            <p>請在下方輸入框貼上你的 Google Apps Script 網址</p>
+            <input type="text" id="apiUrl" placeholder="貼上你的 Google Apps Script 網址（格式：https://script.google.com/macros/s/.../exec）" style="margin-top: 10px;">
+            <button onclick="saveApiUrl()" style="margin-top: 10px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer;">儲存設定</button>
+        </div>
+
+        <form id="surveyForm">
+            <!-- 基本資料 -->
+            <div class="section">
+                <h2 class="section-title">📋 基本資料</h2>
+                
+                <div class="question">
+                    <label class="question-label">1. 年齡區間 <span class="required">*</span></label>
+                    <label class="option"><input type="radio" name="age" value="18-24歲" required> 18-24歲</label>
+                    <label class="option"><input type="radio" name="age" value="25-34歲"> 25-34歲</label>
+                    <label class="option"><input type="radio" name="age" value="35-44歲"> 35-44歲</label>
+                    <label class="option"><input type="radio" name="age" value="45-54歲"> 45-54歲</label>
+                    <label class="option"><input type="radio" name="age" value="55歲以上"> 55歲以上</label>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">2. 性別 <span class="required">*</span></label>
+                    <label class="option"><input type="radio" name="gender" value="男性" required> 男性</label>
+                    <label class="option"><input type="radio" name="gender" value="女性"> 女性</label>
+                    <label class="option"><input type="radio" name="gender" value="不透露"> 不透露</label>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">3. 您平時吃蛋撻的頻率？ <span class="required">*</span></label>
+                    <label class="option"><input type="radio" name="frequency" value="幾乎不吃" required> 幾乎不吃</label>
+                    <label class="option"><input type="radio" name="frequency" value="偶爾吃"> 偶爾吃（一個月1-2次）</label>
+                    <label class="option"><input type="radio" name="frequency" value="經常吃"> 經常吃（一週1次以上）</label>
+                </div>
+            </div>
+
+            <!-- A 品牌試吃 -->
+            <div class="section">
+                <h2 class="section-title">🅰️ A 品牌試吃</h2>
+                <p style="color: #666; margin-bottom: 20px; font-style: italic;">請先品嚐 A 品牌蛋撻，再依照真實感受評分</p>
+                
+                <div class="question">
+                    <label class="question-label">4. 外觀吸引力 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="a_appearance" value="1" id="a_app_1" required>
+                            <label for="a_app_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_appearance" value="2" id="a_app_2">
+                            <label for="a_app_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_appearance" value="3" id="a_app_3">
+                            <label for="a_app_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_appearance" value="4" id="a_app_4">
+                            <label for="a_app_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_appearance" value="5" id="a_app_5">
+                            <label for="a_app_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">5. 酥皮口感 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="a_crust" value="1" id="a_cru_1" required>
+                            <label for="a_cru_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_crust" value="2" id="a_cru_2">
+                            <label for="a_cru_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_crust" value="3" id="a_cru_3">
+                            <label for="a_cru_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_crust" value="4" id="a_cru_4">
+                            <label for="a_cru_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_crust" value="5" id="a_cru_5">
+                            <label for="a_cru_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">6. 內餡質地與風味 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="a_filling" value="1" id="a_fil_1" required>
+                            <label for="a_fil_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_filling" value="2" id="a_fil_2">
+                            <label for="a_fil_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_filling" value="3" id="a_fil_3">
+                            <label for="a_fil_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_filling" value="4" id="a_fil_4">
+                            <label for="a_fil_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_filling" value="5" id="a_fil_5">
+                            <label for="a_fil_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">7. 甜度適中程度 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="a_sweetness" value="1" id="a_swe_1" required>
+                            <label for="a_swe_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_sweetness" value="2" id="a_swe_2">
+                            <label for="a_swe_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_sweetness" value="3" id="a_swe_3">
+                            <label for="a_swe_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_sweetness" value="4" id="a_swe_4">
+                            <label for="a_swe_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_sweetness" value="5" id="a_swe_5">
+                            <label for="a_swe_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">8. 整體滿意度 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="a_overall" value="1" id="a_ove_1" required>
+                            <label for="a_ove_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_overall" value="2" id="a_ove_2">
+                            <label for="a_ove_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_overall" value="3" id="a_ove_3">
+                            <label for="a_ove_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_overall" value="4" id="a_ove_4">
+                            <label for="a_ove_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="a_overall" value="5" id="a_ove_5">
+                            <label for="a_ove_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">9. 一句話評語（選填）</label>
+                    <textarea name="a_comment" placeholder="請分享您的想法..."></textarea>
+                </div>
+            </div>
+
+            <!-- B 品牌試吃 -->
+            <div class="section">
+                <h2 class="section-title">🅱️ B 品牌試吃</h2>
+                <p style="color: #666; margin-bottom: 20px; font-style: italic;">請品嚐 B 品牌蛋撻，再依照真實感受評分</p>
+                
+                <div class="question">
+                    <label class="question-label">10. 外觀吸引力 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="b_appearance" value="1" id="b_app_1" required>
+                            <label for="b_app_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_appearance" value="2" id="b_app_2">
+                            <label for="b_app_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_appearance" value="3" id="b_app_3">
+                            <label for="b_app_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_appearance" value="4" id="b_app_4">
+                            <label for="b_app_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_appearance" value="5" id="b_app_5">
+                            <label for="b_app_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">11. 酥皮口感 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="b_crust" value="1" id="b_cru_1" required>
+                            <label for="b_cru_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_crust" value="2" id="b_cru_2">
+                            <label for="b_cru_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_crust" value="3" id="b_cru_3">
+                            <label for="b_cru_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_crust" value="4" id="b_cru_4">
+                            <label for="b_cru_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_crust" value="5" id="b_cru_5">
+                            <label for="b_cru_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">12. 內餡質地與風味 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="b_filling" value="1" id="b_fil_1" required>
+                            <label for="b_fil_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_filling" value="2" id="b_fil_2">
+                            <label for="b_fil_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_filling" value="3" id="b_fil_3">
+                            <label for="b_fil_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_filling" value="4" id="b_fil_4">
+                            <label for="b_fil_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_filling" value="5" id="b_fil_5">
+                            <label for="b_fil_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">13. 甜度適中程度 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="b_sweetness" value="1" id="b_swe_1" required>
+                            <label for="b_swe_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_sweetness" value="2" id="b_swe_2">
+                            <label for="b_swe_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_sweetness" value="3" id="b_swe_3">
+                            <label for="b_swe_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_sweetness" value="4" id="b_swe_4">
+                            <label for="b_swe_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_sweetness" value="5" id="b_swe_5">
+                            <label for="b_swe_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">14. 整體滿意度 <span class="required">*</span></label>
+                    <div class="rating-container">
+                        <div class="rating-option">
+                            <input type="radio" name="b_overall" value="1" id="b_ove_1" required>
+                            <label for="b_ove_1" class="rating-label">1<br>很差</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_overall" value="2" id="b_ove_2">
+                            <label for="b_ove_2" class="rating-label">2<br>不佳</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_overall" value="3" id="b_ove_3">
+                            <label for="b_ove_3" class="rating-label">3<br>普通</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_overall" value="4" id="b_ove_4">
+                            <label for="b_ove_4" class="rating-label">4<br>不錯</label>
+                        </div>
+                        <div class="rating-option">
+                            <input type="radio" name="b_overall" value="5" id="b_ove_5">
+                            <label for="b_ove_5" class="rating-label">5<br>很好</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">15. 一句話評語（選填）</label>
+                    <textarea name="b_comment" placeholder="請分享您的想法..."></textarea>
+                </div>
+            </div>
+
+            <!-- 品牌揭曉 -->
+            <div class="section brand-reveal">
+                <h2 class="section-title">🎭 品牌揭曉</h2>
+                <p style="margin: 15px 0;">A 品牌是：<span class="brand-name">KFC</span></p>
+                <p style="margin: 15px 0;">B 品牌是：<span class="brand-name">拿波里披薩</span></p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">💭 品牌偏好</h2>
+                
+                <div class="question">
+                    <label class="question-label">16. 知道品牌後，您更想購買哪一個？ <span class="required">*</span></label>
+                    <label class="option"><input type="radio" name="preference" value="KFC" required> KFC 蛋撻</label>
+                    <label class="option"><input type="radio" name="preference" value="拿波里披薩"> 拿波里披薩蛋撻</label>
+                    <label class="option"><input type="radio" name="preference" value="都想買"> 都想買</label>
+                    <label class="option"><input type="radio" name="preference" value="都不想買"> 都不想買</label>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">17. 您認為 KFC 蛋撻合理的單顆售價是？ <span class="required">*</span></label>
+                    <label class="option"><input type="radio" name="kfc_price" value="30元以下" required> 30元以下</label>
+                    <label class="option"><input type="radio" name="kfc_price" value="30-39元"> 30-39元</label>
+                    <label class="option"><input type="radio" name="kfc_price" value="40-49元"> 40-49元</label>
+                    <label class="option"><input type="radio" name="kfc_price" value="50-59元"> 50-59元</label>
+                    <label class="option"><input type="radio" name="kfc_price" value="60元以上"> 60元以上</label>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">18. 您認為拿波里披薩蛋撻合理的單顆售價是？ <span class="required">*</span></label>
+                    <label class="option"><input type="radio" name="napoli_price" value="30元以下" required> 30元以下</label>
+                    <label class="option"><input type="radio" name="napoli_price" value="30-39元"> 30-39元</label>
+                    <label class="option"><input type="radio" name="napoli_price" value="40-49元"> 40-49元</label>
+                    <label class="option"><input type="radio" name="napoli_price" value="50-59元"> 50-59元</label>
+                    <label class="option"><input type="radio" name="napoli_price" value="60元以上"> 60元以上</label>
+                </div>
+                
+                <div class="question">
+                    <label class="question-label">19. 如果要推薦給朋友，您會推薦哪一個？為什麼？ <span class="required">*</span></label>
+                    <textarea name="recommendation" placeholder="請分享您的推薦理由..." required></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">📤 送出問卷</button>
+        </form>
+
+        <div class="success-message" id="successMessage">
+            ✅ 問卷已成功送出！感謝您的參與！
+        </div>
+    </div>
+
+    <script>
+        function saveApiUrl() {
+            const url = document.getElementById('apiUrl').value.trim();
+            if (url) {
+                localStorage.setItem('googleSheetsApiUrl', url);
+                alert('✅ API 網址已儲存！');
+            } else {
+                alert('❌ 請輸入有效的網址');
+            }
+        }
+
+        window.onload = function() {
+            const savedUrl = localStorage.getItem('googleSheetsApiUrl');
+            if (savedUrl) {
+                document.getElementById('apiUrl').value = savedUrl;
+            }
+        };
+
+        document.getElementById('surveyForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const apiUrl = localStorage.getItem('googleSheetsApiUrl');
+            if (!apiUrl) {
+                alert('❌ 請先設定 Google Sheets API 網址');
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ 送出中...';
+
+            const formData = new FormData(this);
+            const data = {};
+            
+            data.timestamp = new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'});
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                document.getElementById('surveyForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                
+                setTimeout(() => {
+                    location.reload();
+                }, 3000);
+
+            } catch (error) {
+                alert('❌ 送出失敗：' + error.message);
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📤 送出問卷';
+            }
+        });
+    </script>
+</body>
+</html>
