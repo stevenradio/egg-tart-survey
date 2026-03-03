@@ -1,673 +1,625 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>蛋撻試吃問卷 - KFC vs 拿波里披薩</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-        
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 28px;
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .section-title {
-            font-size: 20px;
-            color: #667eea;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-        
-        .question {
-            margin-bottom: 25px;
-        }
-        
-        .question-label {
-            display: block;
-            margin-bottom: 10px;
-            color: #333;
-            font-weight: 500;
-        }
-        
-        .required {
-            color: #e74c3c;
-        }
-        
-        input[type="radio"],
-        input[type="checkbox"] {
-            margin-right: 8px;
-        }
-        
-        .option {
-            display: block;
-            margin: 8px 0;
-            padding: 10px;
-            cursor: pointer;
-            transition: background 0.2s;
-            border-radius: 6px;
-        }
-        
-        .option:hover {
-            background: #e8eaf6;
-        }
-        
-        .rating-container {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        .rating-option {
-            flex: 1;
-            min-width: 80px;
-            text-align: center;
-        }
-        
-        .rating-option input[type="radio"] {
-            display: none;
-        }
-        
-        .rating-label {
-            display: block;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-        
-        .rating-option input[type="radio"]:checked + .rating-label {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-            transform: scale(1.05);
-        }
-        
-        .rating-label:hover {
-            border-color: #667eea;
-        }
-        
-        textarea,
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-        
-        textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-        
-        textarea:focus,
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .brand-reveal {
-            background: #fff3cd;
-            border-left-color: #ffc107;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .brand-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff6b6b;
-            margin: 10px 0;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 30px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-        
-        .submit-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 30px;
-            background: #d4edda;
-            border: 2px solid #28a745;
-            border-radius: 12px;
-            color: #155724;
-            font-size: 18px;
-            margin-top: 20px;
-        }
-        
-        .setup-info {
-            background: #fff3cd;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .setup-info h3 {
-            color: #856404;
-            margin-bottom: 10px;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .rating-container {
-                gap: 8px;
-            }
-            
-            .rating-label {
-                padding: 10px 5px;
-                font-size: 12px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>京都家族旅行 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a1a;--paper:#f5f1eb;--accent:#c2432e;--accent-light:#e8d5c4;--stone:#8a8578;--moss:#5a6b4a;--indigo:#3d4f6f;--warm:#faf8f4;--card:#fff;--border:#e0dcd4}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:15px}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(180deg,#2a2622,#3d3830 50%,#5a5347);color:var(--paper);padding:2rem;position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23fff' fill-opacity='.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-c{position:relative;z-index:1}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(2.5rem,8vw,5rem);font-weight:900;letter-spacing:.15em;margin-bottom:.3em}
+.hero .sub{font-size:clamp(.9rem,2.5vw,1.1rem);font-weight:300;letter-spacing:.3em;opacity:.7;margin-bottom:1.5em}
+.hero .dates{font-size:1rem;opacity:.6;border:1px solid rgba(255,255,255,.2);display:inline-block;padding:.5em 1.5em;margin-bottom:2em}
+.hero .note{font-size:.85rem;opacity:.5;max-width:400px;margin:0 auto}
+.scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);font-size:.8rem;opacity:.4;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+nav.n{position:sticky;top:0;z-index:100;background:rgba(245,241,235,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);overflow-x:auto;white-space:nowrap;padding:0 1rem;-webkit-overflow-scrolling:touch}
+nav.n::-webkit-scrollbar{display:none}
+nav.n a{display:inline-block;padding:.9rem .8rem;font-size:.78rem;font-weight:500;color:var(--stone);text-decoration:none;letter-spacing:.05em;transition:color .2s}
+nav.n a:hover{color:var(--accent)}
+.c{max-width:800px;margin:0 auto;padding:0 1.2rem}
+.info-s{padding:4rem 0 3rem;background:var(--warm)}
+.st{font-family:'Noto Serif TC',serif;font-size:1.6rem;font-weight:700;margin-bottom:2rem;padding-bottom:.5rem;border-bottom:2px solid var(--ink)}
+.ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem}
+.ic{background:var(--card);border:1px solid var(--border);padding:1.2rem;text-align:center}
+.ic .icon{font-size:1.5rem;margin-bottom:.5rem}
+.ic .lb{font-size:.72rem;color:var(--stone);text-transform:uppercase;letter-spacing:.1em}
+.ic .vl{font-weight:700;font-size:.9rem;margin-top:.3rem}
+.ic .nt{font-size:.72rem;color:var(--stone);margin-top:.2rem}
+.acc{padding:3rem 0}
+.ag{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem}
+.ac{background:var(--card);border:1px solid var(--border);padding:1.5rem}
+.ac .ad{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:700;margin-bottom:.5rem}
+.ac h3{font-size:1rem;margin-bottom:.3rem}
+.ac .aa{font-size:.8rem;color:var(--stone)}
+.ac .cf{font-size:.75rem;color:var(--stone);margin-top:.5rem}
+.ac a{color:var(--indigo);text-decoration:none;font-size:.8rem}
+.ac a:hover{text-decoration:underline}
+.ds{padding:3rem 0 4rem;border-top:1px solid var(--border)}
+.ds:nth-child(odd){background:var(--warm)}
+.dh{margin-bottom:2.5rem}
+.dl{font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:700}
+.dt{font-family:'Noto Serif TC',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;margin:.3rem 0}
+.dsu{font-size:.85rem;color:var(--stone)}
+.tl{position:relative;padding-left:1.5rem}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--border)}
+.ti{position:relative;margin-bottom:1.5rem;padding-left:1.5rem}
+.ti::before{content:'';position:absolute;left:-1.5rem;top:.6rem;width:8px;height:8px;border-radius:50%;background:var(--stone);border:2px solid var(--paper);transform:translateX(-3px)}
+.ti.hl::before{background:var(--accent)}
+.ti.ml::before{background:var(--moss)}
+.ti.tr::before{background:var(--indigo)}
+.tb{font-size:.75rem;font-weight:700;color:var(--stone)}
+.tt{font-weight:700;font-size:1rem;margin:.2rem 0}
+.td{font-size:.85rem;color:#555;line-height:1.6}
+.td a{color:var(--indigo);text-decoration:none;border-bottom:1px solid var(--indigo)}
+.td a:hover{opacity:.7}
+.tags{margin-top:.4rem}
+.tag{display:inline-block;font-size:.7rem;padding:.15em .6em;background:var(--accent-light);color:var(--accent);font-weight:500;margin-right:.3rem;margin-bottom:.3rem}
+.tag.g{background:#e2ead8;color:var(--moss)}
+.tag.b{background:#dce4ef;color:var(--indigo)}
+.tag.gr{background:#eae8e4;color:var(--stone)}
+.tip{background:#fff8e7;border-left:3px solid #d4a843;padding:1rem 1.2rem;margin:1rem 0;font-size:.85rem}
+.tip strong{color:#a07c1f}
+.alert{background:#fde8e5;border-left:3px solid var(--accent);padding:1rem 1.2rem;margin:1rem 0;font-size:.85rem}
+.alert strong{color:var(--accent)}
+.ro{margin:1rem 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.8rem}
+.rc{background:var(--card);border:1px solid var(--border);padding:1rem;font-size:.8rem}
+.rc .rn{font-weight:700;font-size:.85rem;margin-bottom:.3rem}
+.rc .rm{color:var(--stone);font-size:.75rem}
+.rc a{color:var(--indigo);text-decoration:none;font-size:.75rem}
+.gc{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);padding:1.2rem;margin:1rem 0}
+.gc h4{font-size:.95rem;margin-bottom:.3rem}
+.gc p{font-size:.82rem;color:#555}
+.cls{padding:4rem 0;background:#2a2622;color:var(--paper)}
+.cls .st{color:var(--paper);border-bottom-color:rgba(255,255,255,.3)}
+.cl{list-style:none}
+.cl li{padding:.8rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem;display:flex;align-items:flex-start;gap:.8rem}
+.cl li .ci{flex-shrink:0;width:20px;height:20px;border:2px solid var(--accent);border-radius:3px;margin-top:.15rem;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .15s}
+.cl li .ci.done{background:var(--accent);color:#fff}
+.cl li .cc{flex:1}
+.cl li .cd{font-size:.8rem;opacity:.6;margin-top:.2rem}
+.ubadge{display:inline-block;font-size:.65rem;background:var(--accent);color:#fff;padding:.1em .5em;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:700}
+.wx{background:#e8eff5;border-left:3px solid var(--indigo);padding:1rem 1.2rem;margin:1rem 0;font-size:.85rem}
+.wx strong{color:var(--indigo)}
+.mn{background:#f0ede8;border-left:3px solid var(--stone);padding:1rem 1.2rem;margin:1rem 0;font-size:.82rem}
+.mn strong{color:var(--ink)}
+.mn em{font-style:normal;color:var(--accent);font-weight:500}
+.footer{text-align:center;padding:3rem 1rem;background:#1a1a1a;color:rgba(255,255,255,.4);font-size:.8rem}
+.footer .fq{font-family:'Noto Serif TC',serif;font-size:1rem;color:rgba(255,255,255,.6);margin-bottom:1rem}
+@media(max-width:600px){.ig{grid-template-columns:repeat(2,1fr)}.ag,.ro{grid-template-columns:1fr}nav.n a{padding:.8rem .6rem;font-size:.7rem}}
+.map-wrap{margin:1.5rem 0 0;border:1px solid var(--border);overflow:hidden}
+.map-wrap .map-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);padding:.5rem .8rem;background:var(--warm);border-bottom:1px solid var(--border)}
+.map-wrap .gmap{width:100%;height:300px;display:block}
+.new-badge{display:inline-block;font-size:.65rem;background:#c2432e;color:#fff;padding:.1em .5em;border-radius:2px;margin-left:.4rem;vertical-align:middle;font-weight:700;letter-spacing:.05em}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>🥧 蛋撻試吃問卷</h1>
-        <p class="subtitle">KFC vs 拿波里披薩 盲測評比</p>
-        
-        <div class="setup-info">
-            <h3>📝 設定 Google Sheets API</h3>
-            <p>請在下方輸入框貼上你的 Google Apps Script 網址</p>
-            <input type="text" id="apiUrl" placeholder="貼上你的 Google Apps Script 網址（格式：https://script.google.com/macros/s/.../exec）" style="margin-top: 10px;">
-            <button onclick="saveApiUrl()" style="margin-top: 10px; padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer;">儲存設定</button>
-        </div>
 
-        <form id="surveyForm">
-            <!-- 基本資料 -->
-            <div class="section">
-                <h2 class="section-title">📋 基本資料</h2>
-                
-                <div class="question">
-                    <label class="question-label">1. 年齡區間 <span class="required">*</span></label>
-                    <label class="option"><input type="radio" name="age" value="18-24歲" required> 18-24歲</label>
-                    <label class="option"><input type="radio" name="age" value="25-34歲"> 25-34歲</label>
-                    <label class="option"><input type="radio" name="age" value="35-44歲"> 35-44歲</label>
-                    <label class="option"><input type="radio" name="age" value="45-54歲"> 45-54歲</label>
-                    <label class="option"><input type="radio" name="age" value="55歲以上"> 55歲以上</label>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">2. 性別 <span class="required">*</span></label>
-                    <label class="option"><input type="radio" name="gender" value="男性" required> 男性</label>
-                    <label class="option"><input type="radio" name="gender" value="女性"> 女性</label>
-                    <label class="option"><input type="radio" name="gender" value="不透露"> 不透露</label>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">3. 您平時吃蛋撻的頻率？ <span class="required">*</span></label>
-                    <label class="option"><input type="radio" name="frequency" value="幾乎不吃" required> 幾乎不吃</label>
-                    <label class="option"><input type="radio" name="frequency" value="偶爾吃"> 偶爾吃（一個月1-2次）</label>
-                    <label class="option"><input type="radio" name="frequency" value="經常吃"> 經常吃（一週1次以上）</label>
-                </div>
-            </div>
+<section class="hero"><div class="hero-c">
+<h1>京都・宮津</h1>
+<div class="sub">A Family Trip to Kyoto &amp; Miyazu</div>
+<div class="dates">2026.03.03 — 03.11</div>
+<p class="note">爸爸・媽媽・一歲寶寶<br>9天8夜，一台車，一間町家<br>唱片行、古董市、老書店、舟屋漁村</p>
+</div><div class="scroll">↓ 向下滑動瀏覽行程</div></section>
 
-            <!-- A 品牌試吃 -->
-            <div class="section">
-                <h2 class="section-title">🅰️ A 品牌試吃</h2>
-                <p style="color: #666; margin-bottom: 20px; font-style: italic;">請先品嚐 A 品牌蛋撻，再依照真實感受評分</p>
-                
-                <div class="question">
-                    <label class="question-label">4. 外觀吸引力 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="a_appearance" value="1" id="a_app_1" required>
-                            <label for="a_app_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_appearance" value="2" id="a_app_2">
-                            <label for="a_app_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_appearance" value="3" id="a_app_3">
-                            <label for="a_app_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_appearance" value="4" id="a_app_4">
-                            <label for="a_app_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_appearance" value="5" id="a_app_5">
-                            <label for="a_app_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">5. 酥皮口感 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="a_crust" value="1" id="a_cru_1" required>
-                            <label for="a_cru_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_crust" value="2" id="a_cru_2">
-                            <label for="a_cru_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_crust" value="3" id="a_cru_3">
-                            <label for="a_cru_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_crust" value="4" id="a_cru_4">
-                            <label for="a_cru_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_crust" value="5" id="a_cru_5">
-                            <label for="a_cru_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">6. 內餡質地與風味 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="a_filling" value="1" id="a_fil_1" required>
-                            <label for="a_fil_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_filling" value="2" id="a_fil_2">
-                            <label for="a_fil_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_filling" value="3" id="a_fil_3">
-                            <label for="a_fil_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_filling" value="4" id="a_fil_4">
-                            <label for="a_fil_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_filling" value="5" id="a_fil_5">
-                            <label for="a_fil_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">7. 甜度適中程度 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="a_sweetness" value="1" id="a_swe_1" required>
-                            <label for="a_swe_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_sweetness" value="2" id="a_swe_2">
-                            <label for="a_swe_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_sweetness" value="3" id="a_swe_3">
-                            <label for="a_swe_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_sweetness" value="4" id="a_swe_4">
-                            <label for="a_swe_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_sweetness" value="5" id="a_swe_5">
-                            <label for="a_swe_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">8. 整體滿意度 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="a_overall" value="1" id="a_ove_1" required>
-                            <label for="a_ove_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_overall" value="2" id="a_ove_2">
-                            <label for="a_ove_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_overall" value="3" id="a_ove_3">
-                            <label for="a_ove_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_overall" value="4" id="a_ove_4">
-                            <label for="a_ove_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="a_overall" value="5" id="a_ove_5">
-                            <label for="a_ove_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">9. 一句話評語（選填）</label>
-                    <textarea name="a_comment" placeholder="請分享您的想法..."></textarea>
-                </div>
-            </div>
+<nav class="n">
+<a href="#info">行前須知</a><a href="#stay">住宿</a><a href="#d1">Day1</a><a href="#d2">Day2</a><a href="#d3">Day3</a><a href="#d4">Day4</a><a href="#d5">Day5</a><a href="#d6">Day6</a><a href="#d7">Day7</a><a href="#d8">Day8</a><a href="#d9">Day9</a><a href="#ken-unagi">Ken私房</a><a href="#todo">待辦</a>
+</nav>
 
-            <!-- B 品牌試吃 -->
-            <div class="section">
-                <h2 class="section-title">🅱️ B 品牌試吃</h2>
-                <p style="color: #666; margin-bottom: 20px; font-style: italic;">請品嚐 B 品牌蛋撻，再依照真實感受評分</p>
-                
-                <div class="question">
-                    <label class="question-label">10. 外觀吸引力 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="b_appearance" value="1" id="b_app_1" required>
-                            <label for="b_app_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_appearance" value="2" id="b_app_2">
-                            <label for="b_app_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_appearance" value="3" id="b_app_3">
-                            <label for="b_app_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_appearance" value="4" id="b_app_4">
-                            <label for="b_app_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_appearance" value="5" id="b_app_5">
-                            <label for="b_app_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">11. 酥皮口感 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="b_crust" value="1" id="b_cru_1" required>
-                            <label for="b_cru_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_crust" value="2" id="b_cru_2">
-                            <label for="b_cru_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_crust" value="3" id="b_cru_3">
-                            <label for="b_cru_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_crust" value="4" id="b_cru_4">
-                            <label for="b_cru_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_crust" value="5" id="b_cru_5">
-                            <label for="b_cru_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">12. 內餡質地與風味 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="b_filling" value="1" id="b_fil_1" required>
-                            <label for="b_fil_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_filling" value="2" id="b_fil_2">
-                            <label for="b_fil_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_filling" value="3" id="b_fil_3">
-                            <label for="b_fil_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_filling" value="4" id="b_fil_4">
-                            <label for="b_fil_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_filling" value="5" id="b_fil_5">
-                            <label for="b_fil_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">13. 甜度適中程度 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="b_sweetness" value="1" id="b_swe_1" required>
-                            <label for="b_swe_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_sweetness" value="2" id="b_swe_2">
-                            <label for="b_swe_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_sweetness" value="3" id="b_swe_3">
-                            <label for="b_swe_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_sweetness" value="4" id="b_swe_4">
-                            <label for="b_swe_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_sweetness" value="5" id="b_swe_5">
-                            <label for="b_swe_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">14. 整體滿意度 <span class="required">*</span></label>
-                    <div class="rating-container">
-                        <div class="rating-option">
-                            <input type="radio" name="b_overall" value="1" id="b_ove_1" required>
-                            <label for="b_ove_1" class="rating-label">1<br>很差</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_overall" value="2" id="b_ove_2">
-                            <label for="b_ove_2" class="rating-label">2<br>不佳</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_overall" value="3" id="b_ove_3">
-                            <label for="b_ove_3" class="rating-label">3<br>普通</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_overall" value="4" id="b_ove_4">
-                            <label for="b_ove_4" class="rating-label">4<br>不錯</label>
-                        </div>
-                        <div class="rating-option">
-                            <input type="radio" name="b_overall" value="5" id="b_ove_5">
-                            <label for="b_ove_5" class="rating-label">5<br>很好</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">15. 一句話評語（選填）</label>
-                    <textarea name="b_comment" placeholder="請分享您的想法..."></textarea>
-                </div>
-            </div>
+<!-- 行前須知 -->
 
-            <!-- 品牌揭曉 -->
-            <div class="section brand-reveal">
-                <h2 class="section-title">🎭 品牌揭曉</h2>
-                <p style="margin: 15px 0;">A 品牌是：<span class="brand-name">KFC</span></p>
-                <p style="margin: 15px 0;">B 品牌是：<span class="brand-name">拿波里披薩</span></p>
-            </div>
+<section class="info-s" id="info"><div class="c">
+<h2 class="st">行前須知</h2>
+<div class="wx"><strong>🌡️ 三月上旬京都天氣：</strong>白天 8–14°C（最低 0–4°C），體感偏冷。洋蔥式穿搭：長袖＋外套＋薄羽絨備用。宮津／天橋立靠日本海側更冷，加防風層。雨天機率約 40%，帶輕便雨傘和推車雨罩。</div>
+<div class="ig">
+<div class="ic"><div class="icon">✈️</div><div class="lb">去程航班</div><div class="vl">BR132</div><div class="nt">3/3 TPE T2 08:20<br>→ KIX T1 11:55</div></div>
+<div class="ic"><div class="icon">✈️</div><div class="lb">回程航班</div><div class="vl">BR131</div><div class="nt">3/11 KIX T1 12:55<br>→ TPE T2 15:05</div></div>
+<div class="ic"><div class="icon">🚃</div><div class="lb">Haruka 回程</div><div class="vl">No.15・車廂9・座1B</div><div class="nt">京都 09:30<br>→ 關西空港 10:54</div></div>
+<div class="ic"><div class="icon">🚗</div><div class="lb">租車 Jo Cars</div><div class="vl">Toyota Corolla Touring</div><div class="nt">3/3 P5取車・3/6 住宿旁還車<br>（多租一天・共4天）</div></div>
+<div class="ic"><div class="icon">💰</div><div class="lb">租車費用</div><div class="vl">¥41,400 現金</div><div class="nt">車租¥36,000+全保¥5,400<br>ETC費還車時另計</div></div>
+<div class="ic"><div class="icon">👶</div><div class="lb">寶寶裝備</div><div class="vl">兒童座椅已訂</div><div class="nt">朝前安裝・1–4歲<br>ETC 卡已備</div></div>
+<div class="ic"><div class="icon">🛂</div><div class="lb">駕照</div><div class="vl">台灣駕照＋日文譯本</div><div class="nt">取車時需出示</div></div>
+<div class="ic"><div class="icon">🎫</div><div class="lb">JR 車票</div><div class="vl">Haruka No.15</div><div class="nt">ID：497348・上車前<br>在 App 點「立即使用」</div></div>
+</div>
 
-            <div class="section">
-                <h2 class="section-title">💭 品牌偏好</h2>
-                
-                <div class="question">
-                    <label class="question-label">16. 知道品牌後，您更想購買哪一個？ <span class="required">*</span></label>
-                    <label class="option"><input type="radio" name="preference" value="KFC" required> KFC 蛋撻</label>
-                    <label class="option"><input type="radio" name="preference" value="拿波里披薩"> 拿波里披薩蛋撻</label>
-                    <label class="option"><input type="radio" name="preference" value="都想買"> 都想買</label>
-                    <label class="option"><input type="radio" name="preference" value="都不想買"> 都不想買</label>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">17. 您認為 KFC 蛋撻合理的單顆售價是？ <span class="required">*</span></label>
-                    <label class="option"><input type="radio" name="kfc_price" value="30元以下" required> 30元以下</label>
-                    <label class="option"><input type="radio" name="kfc_price" value="30-39元"> 30-39元</label>
-                    <label class="option"><input type="radio" name="kfc_price" value="40-49元"> 40-49元</label>
-                    <label class="option"><input type="radio" name="kfc_price" value="50-59元"> 50-59元</label>
-                    <label class="option"><input type="radio" name="kfc_price" value="60元以上"> 60元以上</label>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">18. 您認為拿波里披薩蛋撻合理的單顆售價是？ <span class="required">*</span></label>
-                    <label class="option"><input type="radio" name="napoli_price" value="30元以下" required> 30元以下</label>
-                    <label class="option"><input type="radio" name="napoli_price" value="30-39元"> 30-39元</label>
-                    <label class="option"><input type="radio" name="napoli_price" value="40-49元"> 40-49元</label>
-                    <label class="option"><input type="radio" name="napoli_price" value="50-59元"> 50-59元</label>
-                    <label class="option"><input type="radio" name="napoli_price" value="60元以上"> 60元以上</label>
-                </div>
-                
-                <div class="question">
-                    <label class="question-label">19. 如果要推薦給朋友，您會推薦哪一個？為什麼？ <span class="required">*</span></label>
-                    <textarea name="recommendation" placeholder="請分享您的推薦理由..." required></textarea>
-                </div>
-            </div>
+<div style="margin-top:2.5rem">
+<h3 style="font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;margin-bottom:1rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)">🎵 唱片行分級</h3>
+<div class="ro">
+<div class="rc"><div class="rn">⭐ Meditations <span class="tag" style="font-size:.65rem;vertical-align:middle">主推</span></div><div class="rm">地下空間・環境音/實驗/爵士・京都最具個性<br>週三–日 13:00–20:00（週一二休）<br>→ Day 5（週六）安排<br><a href="https://maps.google.com/?q=Meditations+records+京都" target="_blank">📍 地圖</a></div></div>
+<div class="rc"><div class="rn">⭐ Joe's Garage <span class="tag" style="font-size:.65rem;vertical-align:middle">主推</span></div><div class="rm">下京區・龐克/搖滾/靈魂/R&amp;B<br>店主品味純粹，週三–日 13:00（週一二休）<br>→ Day 5（週六）安排・⚠️週一通常休<br><a href="https://maps.google.com/?q=Joe's+Garage+records+京都" target="_blank">📍 地圖</a></div></div>
+<div class="rc"><div class="rn">Art Rock No.1 <span class="tag gr" style="font-size:.65rem;vertical-align:middle">彈性</span></div><div class="rm">中京区麩屋町通三条下る FSSビル4F・オールジャンル中古<br>🕐 12:00–20:00｜水曜休<br><a href="https://maps.google.com/?q=京都市中京区白壁町442+FSSビル4F+ART+ROCK+NO.1" target="_blank">📍 地圖</a></div></div>
+<div class="rc"><div class="rn">Parallax Records <span class="tag gr" style="font-size:.65rem;vertical-align:middle">彈性</span></div><div class="rm">中京区桜之町407-1 詩の小路ビル2F・ノイズ/実験/前衛<br>🕐 11:00–20:00｜火曜休<br><a href="https://maps.google.com/?q=京都市中京区桜之町407-1+詩の小路ビル2F+Parallax+Records" target="_blank">📍 地圖</a></div></div>
+<div class="rc"><div class="rn">Jazzy Sport Kyoto <span class="tag gr" style="font-size:.65rem;vertical-align:middle">彈性</span></div><div class="rm">東山区弁財天町19 Y gion 5F・hip-hop/funk/jazz/新品<br>🕐 14:00–20:00｜火曜休<br><a href="https://maps.google.com/?q=京都市東山区弁財天町19+Y+gion+Jazzy+Sport+Kyoto" target="_blank">📍 地圖</a></div></div>
+</div>
+</div>
+</div></section>
 
-            <button type="submit" class="submit-btn" id="submitBtn">📤 送出問卷</button>
-        </form>
+<!-- 住宿 -->
 
-        <div class="success-message" id="successMessage">
-            ✅ 問卷已成功送出！感謝您的參與！
-        </div>
-    </div>
+<section class="acc" id="stay"><div class="c">
+<h2 class="st">住宿安排</h2>
+<div class="ag">
+<div class="ac"><div class="ad">3/3 — 3/5（2晚）</div><h3>🏡 三上勘兵衛本店</h3><div class="aa">〒626-0014 京都府宮津市河原1851-1<br>文化財「旧三上家住宅」・宮津灣旁老町家</div><div class="cf">確認碼：HMQHYXM9CW<br>入住 15:00｜📞 <a href="tel:+819030431851">+81 90-3043-1851</a></div><a href="https://maps.google.com/?q=三上勘兵衛本店+宮津" target="_blank">📍 地圖</a></div>
+<div class="ac"><div class="ad">3/5 — 3/11（6晚）</div><h3>🏘️ Kyo-Machiya Inn Toji 琉璃心町家</h3><div class="aa">〒601-8475 京都市南区八条内田町44-2<br>東寺徒步圈・地暖・冬天不冷</div><div class="cf">確認碼：HMJCRZ3QDA<br>入住 15:00 ／退房 3/11 10:00<br>📞 <a href="tel:+818044943999">+81 80-4494-3999</a></div><a href="https://maps.google.com/?q=601-8475+京都市南区八条内田町44-2" target="_blank">📍 地圖</a></div>
+</div></div></section>
 
-    <script>
-        function saveApiUrl() {
-            const url = document.getElementById('apiUrl').value.trim();
-            if (url) {
-                localStorage.setItem('googleSheetsApiUrl', url);
-                alert('✅ API 網址已儲存！');
-            } else {
-                alert('❌ 請輸入有效的網址');
-            }
+<!-- DAY 1 -->
+
+<section class="ds" id="d1"><div class="c">
+<div class="dh"><div class="dl">Day 1 — 3月3日（二）</div><div class="dt">關西機場 → 宮津</div><div class="dsu">EVA BR132 → Jo Cars P5 → Miyazu via car</div></div>
+<div class="tl">
+<div class="ti tr"><div class="tb">11:55 抵達</div><div class="tt">✈️ 抵達關西機場 T1</div><div class="td">EVA AIR BR132，桃園T2 08:20 → 關西T1 11:55。出關＋領行李約30–40分鐘，帶嬰兒可走家庭通道。</div></div>
+<div class="ti ml"><div class="tb">12:30</div><div class="tt">🍱 T1 午餐</div><div class="td">出關後在T1先吃午餐，Town Gate 1F 有拉麵、定食。</div></div>
+<div class="ti hl"><div class="tb">13:30 — 14:00</div><div class="tt">🚗 P5 停車場取車</div><div class="td">租車公司：<strong>Jo Cars Rental</strong><br>車款：Toyota Corolla Touring<br>取車地點：<strong>關西機場 P5 停車場</strong>（降落後通知，他們到 P5 聯絡）<br>含 ETC 卡＋兒童座椅（朝前）＋全保<br><strong>全額現金付款 ¥41,400</strong>（車租¥36,000+全保¥5,400）<br>ETC 通行費還車時現金另計<br>📞 <a href="tel:+886982899279">+886 982-899-279</a>（Shiao Tongfang）<br><a href="https://maps.app.goo.gl/yEswjbhZ3zXtQ9bh8" target="_blank">📍 P5 停車場地圖</a></div><div class="tags"><span class="tag">現金 ¥41,400</span><span class="tag">台灣駕照＋日文譯本</span></div></div>
+<div class="ti tr"><div class="tb">14:00 — 16:30</div><div class="tt">🛣️ 開車前往宮津</div><div class="td">走阪神高速 → 京都縱貫道，約 2.5 小時。寶寶車上午睡，到宮津剛好傍晚。</div></div>
+<div class="ti"><div class="tb">約 17:00</div><div class="tt">🏡 入住三上勘兵衛本店</div><div class="td">文化財「旧三上家住宅」，宮津灣旁老町家。確認碼：HMQHYXM9CW<br>📞 <a href="tel:+819030431851">+81 90-3043-1851</a><br><a href="https://maps.google.com/?q=三上勘兵衛本店+宮津" target="_blank">📍 地圖</a></div></div>
+<div class="ti ml"><div class="tb">18:30</div><div class="tt">🍽️ 宮津晚餐</div></div>
+</div>
+<div class="mn"><strong>🌅 宮津早餐選項（Day 1 抵達後 / Day 2 早晨適用）：</strong><br>
+<em>Uminami Yamayama（海と山と）</em> — 從早上就有海鮮丼和套餐，食材來自宮津漁港。🕐 7:00–｜<strong>週三休（注意臨時休息）</strong>｜距住宿約8分鐘車程　<a href="https://yamaichi-suisan.jp/umisen_yamasen.html" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=宮津+海と山と+uminami+yamayama" target="_blank">📍 地圖</a><br>
+<em>村田堂（Muratadō）</em> — 宮津站前咖啡館，咖啡師手沖，早晨安靜的起點。🕐 9:00–｜<strong>週一休</strong>｜距住宿步行約12分鐘　<a href="http://www.muratado.net/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=村田堂+宮津市" target="_blank">📍 地圖</a><br>
+<em>富樽町トマト</em> — 宮津在地輕食，10:00開，適合上午外出後回程順道。距住宿約5分鐘車程　<a href="https://totomart-miyazu.com/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=富樽町トマト+宮津" target="_blank">📍 地圖</a></div>
+
+<div class="mn"><strong>🍽️ 宮津晚餐建議（住宿步行5分鐘以內）：</strong><br>
+<em>Kappari Tango（割烹丹後）</em> — 丹後半島割烹料理，在地食材精緻和食。　<a href="https://hotel-tango.com/kappo-tango/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=割烹丹後+宮津" target="_blank">📍 地圖</a><br>
+<em>Sakana Zen（魚然）</em> — 宮津鮮魚料理。　<a href="http://www.tango.or.jp/zen/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=魚然+Sakana+Zen+宮津" target="_blank">📍 地圖</a><br>
+<em>Tai Kobo（鯛工房）</em> — 鯛魚料理專門店。　<a href="https://miyazu-cci.or.jp/miyaguru/taikoubou/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=鯛工房+宮津" target="_blank">📍 地圖</a><br>
+<em>きんぱぎんぱ（迴轉壽司）</em> — 宮津在地迴轉壽司，輕鬆帶寶寶。　<a href="https://kinpaginpa.jp/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=きんぱぎんぱ+宮津" target="_blank">📍 地圖</a><br>
+<em>清洋軒（Seiyo Ken）</em> — 宮津老牌洋食屋，在地人氣店。　<a href="http://seiyouken.jp/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=清洋軒+宮津" target="_blank">📍 地圖</a><br>
+<em>丹 Tan</em> — Michelin Bib Gourmand，丹後半島食材現代和食，建議提前確認。　<a href="https://maps.google.com/?q=丹+Tan+宮津" target="_blank">📍 地圖</a><br><br>
+<strong>🚗 開車可抵（彈性選項）：</strong><br>
+<em>なみ路（Namiji）</em> — 居酒屋・地魚，車程約3分鐘。　<a href="https://www.uminokyoto.jp/gourmet/detail.php?gourmet_id=2" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=なみ路+宮津" target="_blank">📍 地圖</a><br>
+<em>310 Amanohashidate（310天橋立）</em> — 天橋立旁，車程約6分鐘。　<a href="https://www.instagram.com/310amanohashidate/" target="_blank">🌐 IG</a>　<a href="https://maps.google.com/?q=310+天橋立+宮津" target="_blank">📍 地圖</a><br>
+<em>雪竹庵（Setsuuan）</em> — 車程約17分鐘。　<a href="http://www.sessyu-ann.com/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=雪竹庵+宮津" target="_blank">📍 地圖</a><br>
+<em>仁炭田本店（Nihonda）</em> — 車程約20分鐘。　<a href="http://www.nitanda-honten.jp/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=仁炭田本店+宮津" target="_blank">📍 地圖</a><br><br>
+<em>問民宿主人推薦</em> — 宮津漁港周邊居酒屋，在地人才知道的店，通常最準。</div>
+<div class="map-wrap"><div class="map-label">📍 Day 1 地圖</div><div class="gmap" id="map-d1"></div></div>
+</div></section>
+
+<!-- DAY 2 -->
+
+<section class="ds" id="d2"><div class="c">
+<div class="dh"><div class="dl">Day 2 — 3月4日（三）</div><div class="dt">天橋立＋伊根舟屋</div><div class="dsu">Amanohashidate &amp; Ine Funaya</div></div>
+<div class="tl">
+<div class="ti ml"><div class="tb">08:30</div><div class="tt">☕ 早餐</div><div class="td">民宿附近或自備，不趕時間。</div></div>
+<div class="ti hl"><div class="tb">09:30 — 11:00</div><div class="tt">🌲 天橋立松林散步</div><div class="td">日本三景的沙洲松林。不必搭纜車俯瞰（觀光客才做的事），沿松林帶寶寶漫步，感受海風松樹氣息。<a href="https://maps.google.com/?q=天橋立+松並木" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag g">日本三景</span></div></div>
+<div class="ti tr"><div class="tb">11:30</div><div class="tt">🚗 開車前往伊根</div><div class="td">約 35 分鐘，沿途丹後半島海岸公路風景絕美。</div></div>
+<div class="ti hl"><div class="tb">12:00 — 14:30</div><div class="tt">⛵ 伊根舟屋・遊覽船</div><div class="td">日本重傳建地區，日本僅存海上漁村聚落。舟屋直接蓋在海面上，低調原始，幾乎沒有觀光設施。<br>搭觀光遊覽船從海上近距離看舟屋（約30分），寶寶可以餵海鷗。帶嬰兒完全可行。<br>🌐 <a href="https://www.inewan.com" target="_blank">運行資訊確認：inewan.com</a>（出發前一天查看）<br><a href="https://maps.google.com/?q=伊根湾めぐり遊覧船" target="_blank">📍 遊覽船地圖</a></div><div class="tags"><span class="tag g">重傳建地區</span></div></div>
+
+<div class="tip"><strong>🌧️ 下雨備案：</strong>一般陣雨不影響運行，船上有遮蔽，帶嬰兒沒問題。霧雨天反而讓伊根灣有另一種朦朧美。<br>
+真正取消的條件是<strong>強風或惡劣海象</strong>（非一般下雨）。出發前一天查 <a href="https://www.inewan.com" target="_blank">inewan.com</a> 或請民宿主人問當天海況——他們是最準確的資訊來源。<br>
+<strong>若遊覽船真的取消：</strong>改用走的繞舟屋聚落一圈（石板路雨天注意濕滑，推車放慢），然後提早回宮津，把時間用在宮津老街漫步。Day 2 本來節奏最鬆，天氣不好也壞不掉整天。</div>
+<div class="ti ml"><div class="tb">13:00</div><div class="tt">🍽️ 伊根午餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ 午餐建議（伊根）：</strong><br>
+<em>道の駅 舟屋の里伊根</em> — 在地海鮮丼，俯瞰伊根灣，食材新鮮，價格合理，不是網紅地，只是漁村的真實午餐。<a href="https://maps.google.com/?q=道の駅+舟屋の里伊根" target="_blank">📍</a><br>
+<em>INE CAFE</em> — 伊根町咖啡，輕食＋海景，帶寶寶輕鬆。<a href="https://maps.google.com/?q=INE+CAFE+伊根" target="_blank">📍</a><br><br>
+<strong>🐟 宮津午餐選項（回程順道）：</strong><br>
+<em>川崎海鮮</em> — 深受當地人喜愛，請提前心理準備排隊。　<a href="https://m.facebook.com/profile.php/?id=100054486189219" target="_blank">🌐 Facebook</a>　<a href="https://maps.google.com/?q=川崎海鮮+宮津" target="_blank">📍 地圖</a></div>
+<div class="tl">
+<div class="ti tr"><div class="tb">15:00</div><div class="tt">🚗 回宮津</div><div class="td">寶寶午睡時間，沿海岸線回程。</div></div>
+<div class="ti ml"><div class="tb">18:00</div><div class="tt">🍽️ 宮津晚餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ Day 2 宮津晚餐建議（住宿步行5分鐘以內）：</strong><br>
+<em>Sushi Suehiro（鮓末廣）</em> — 200年歷史老店，丹後名物「鯖姿壽司」，押壽司傳統，每一貫都是工藝。<strong>建議提前電話確認能否入座。</strong>　<a href="https://maps.google.com/?q=末廣+鯖寿司+宮津" target="_blank">📍 地圖</a><br>
+<em>Kappari Tango（割烹丹後）</em> — 丹後半島割烹料理，在地食材精緻和食。　<a href="https://hotel-tango.com/kappo-tango/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=割烹丹後+宮津" target="_blank">📍 地圖</a><br>
+<em>Sakana Zen（魚然）</em> — 宮津鮮魚料理。　<a href="http://www.tango.or.jp/zen/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=魚然+Sakana+Zen+宮津" target="_blank">📍 地圖</a><br>
+<em>鯛工房 Tai Kobo</em> — 鯛魚料理專門。　<a href="https://miyazu-cci.or.jp/miyaguru/taikoubou/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=鯛工房+宮津" target="_blank">📍 地圖</a><br>
+<em>きんぱぎんぱ（迴轉壽司）</em> — 在地迴轉壽司，輕鬆帶寶寶。　<a href="https://kinpaginpa.jp/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=きんぱぎんぱ+宮津" target="_blank">📍 地圖</a><br>
+<em>清洋軒（Seiyo Ken）</em> — 老牌洋食屋，在地人氣店。　<a href="http://seiyouken.jp/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=清洋軒+宮津" target="_blank">📍 地圖</a><br><br>
+<strong>🚗 開車可抵（彈性）：</strong><br>
+<em>なみ路（Namiji）</em> — 居酒屋・地魚，車程約3分鐘。　<a href="https://www.uminokyoto.jp/gourmet/detail.php?gourmet_id=2" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=なみ路+宮津" target="_blank">📍 地圖</a><br>
+<em>310 Amanohashidate（310天橋立）</em> — 天橋立旁，車程約6分鐘。　<a href="https://www.instagram.com/310amanohashidate/" target="_blank">🌐 IG</a>　<a href="https://maps.google.com/?q=310+天橋立+宮津" target="_blank">📍 地圖</a><br>
+<em>雪竹庵（Setsuuan）</em> — 車程約17分鐘。　<a href="http://www.sessyu-ann.com/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=雪竹庵+宮津" target="_blank">📍 地圖</a><br>
+<em>仁炭田本店（Nihonda）</em> — 車程約20分鐘。　<a href="http://www.nitanda-honten.jp/" target="_blank">🌐 官網</a>　<a href="https://maps.google.com/?q=仁炭田本店+宮津" target="_blank">📍 地圖</a></div>
+<div class="map-wrap"><div class="map-label">📍 Day 2 地圖</div><div class="gmap" id="map-d2"></div></div>
+</div></section>
+
+<!-- DAY 3 -->
+
+<section class="ds" id="d3"><div class="c">
+<div class="dh"><div class="dl">Day 3 — 3月5日（四）</div><div class="dt">宮津 → 京都</div><div class="dsu">Miyazu → Kyoto · 入住町家</div></div>
+<div class="tl">
+<div class="ti ml"><div class="tb">08:30</div><div class="tt">🍳 早餐</div><div class="td">民宿附近或自備。宮津最後一個早晨，不必急。</div></div>
+<div class="ti tr"><div class="tb">10:00</div><div class="tt">🚗 出發南下京都</div><div class="td">走丹後縱貫道 → 京都縱貫自動車道，約 2–2.5 小時。中途休息站讓寶寶活動。</div></div>
+<div class="ti ml"><div class="tb">途中</div><div class="tt">🍽️ 午餐</div><div class="td">綾部或龜岡附近路邊定食屋，不必強求，保留胃口給京都。</div></div>
+<div class="ti hl"><div class="tb">15:00</div><div class="tt">🏘️ 入住 琉璃心町家</div><div class="td">京都南區，近東寺，接下來六晚的家。<br>確認碼：HMJCRZ3QDA<br>📞 <a href="tel:+818044943999">+81 80-4494-3999</a><br><a href="https://maps.google.com/?q=601-8475+京都市南区八条内田町44-2" target="_blank">📍 地圖</a></div></div>
+<div class="ti"><div class="tb">18:00</div><div class="tt">🌙 東寺黃昏散步</div><div class="td">步行即到，看東寺五重塔夜景。<a href="https://maps.google.com/?q=東寺+京都" target="_blank">📍 地圖</a></div></div>
+<div class="ti ml"><div class="tb">19:00</div><div class="tt">🍽️ 晚餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ 晚餐建議：</strong>第一晚到京都，還完車後步行範圍。<em>京都站大樓10F 京都拉麵小路</em>（多家名店集合，帶小孩方便），或東寺附近覓食。也可以買便當回町家吃，第一晚不必勉強。</div>
+<div class="map-wrap"><div class="map-label">📍 Day 3 地圖</div><div class="gmap" id="map-d3"></div></div>
+</div></section>
+
+<!-- DAY 4 — 琵琶湖 NEW -->
+
+<section class="ds" id="d4"><div class="c">
+<div class="dh">
+<div class="dl">Day 4 — 3月6日（五）</div>
+<div class="dt">琵琶湖一日遊 ＋ 近江牛 <span class="new-badge">NEW</span></div>
+<div class="dsu">白鬚神社 → 満月寺浮御堂 → 近江八幡 → ミオズミートショップ → 還車</div>
+</div>
+
+<div class="tip"><strong>💡 動線：</strong>東向75分到湖西最北端白鬚神社，沿西岸南下到堅田満月寺，再東向跨湖到近江八幡，南下栗東ミオズ買肉，最後西向50分回京都還車。<strong>✅ 動線完全順路，無繞路。</strong>栗東就在近江八幡和京都之間，幾乎零繞路。</div>
+
+<div class="tl">
+<div class="ti tr"><div class="tb">08:00</div><div class="tt">🚗 出發</div><div class="td">從琉璃心町家出發，東向往琵琶湖。走名神高速或國道161號，約75分鐘到白鬚神社。</div></div>
+
+<div class="ti hl"><div class="tb">09:15 — 10:00</div><div class="tt">⛩️ 白鬚神社</div><div class="td">琵琶湖上的水上鳥居，日本最古老神社之一（2000年以上歷史），被稱為「近江の厳島」。清晨人少，湖面倒影最美。帶寶寶在湖邊走走。<br><a href="https://maps.google.com/?q=白鬚神社+滋賀" target="_blank">📍 地圖</a><br>🕐 24小時 ✅</div><div class="tags"><span class="tag g">湖上鳥居</span><span class="tag gr">免費</span></div></div>
+
+<div class="ti tr"><div class="tb">10:00 — 10:40</div><div class="tt">🚗 沿西岸南下</div><div class="td">沿湖西岸（國道161號）南下約40分鐘，途經堅田。</div></div>
+
+<div class="ti hl"><div class="tb">10:40 — 11:20</div><div class="tt">🏯 満月寺浮御堂</div><div class="td">建於湖上的小型佛堂，千年歷史。不是熱門景點，幾乎沒有觀光客。入場¥300。<br><a href="https://maps.google.com/?q=満月寺浮御堂+堅田" target="_blank">📍 地圖</a><br>🕐 8:00–17:00 ✅</div><div class="tags"><span class="tag g">湖上佛堂</span></div></div>
+
+<div class="ti tr"><div class="tb">11:20 — 12:10</div><div class="tt">🚗 東向跨湖 → 近江八幡</div><div class="td">走國道477號跨越琵琶湖東岸，約50分鐘。</div></div>
+
+<div class="ti hl"><div class="tb">12:10 — 13:30</div><div class="tt">🏘️ 近江八幡 八幡堀 ＋ 午餐</div><div class="td">戰國時代水路，400年前豐臣秀次整備的商業城市骨架。石疊小路＋白壁倉庫沿水路展開，無人的時間帶就算不整修也美。帶寶寶走在石板路上，氣氛非常好。<br><a href="https://maps.google.com/?q=近江八幡+八幡堀" target="_blank">📍 地圖</a><br>🕐 24小時散步 ✅</div><div class="tags"><span class="tag g">歷史水路</span><span class="tag gr">免費</span></div></div>
+</div>
+
+<div class="mn"><strong>🥩 午餐建議（近江八幡）：</strong><br>
+<em>カネ吉山本</em> — 近江八幡在地老鋪，近江牛すき焼き・しゃぶしゃぶ。🕐 9:00–19:00｜<strong>週二休→3/6五有開 ✅</strong><a href="https://maps.google.com/?q=カネ吉山本+近江八幡" target="_blank"> 📍</a></div>
+
+<div class="tl">
+<div class="ti tr"><div class="tb">13:30 — 13:50</div><div class="tt">🚗 南下 → 栗東</div><div class="td">約20分鐘，往南到栗東市。</div></div>
+
+<div class="ti hl"><div class="tb">13:50 — 14:30</div><div class="tt">🥩 ミオズミートショップ・栗東</div><div class="td">Ken 推薦的近江牛精肉專門店。買和牛帶回町家，晚上自己料理。<br>📍 栗東市（35.036 / 135.982）<br>🕐 10:00–18:00｜<strong>週三休→3/6五有開 ✅</strong><br><a href="https://maps.google.com/?q=ミオズミートショップ+栗東" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag">近江牛外帶</span></div></div>
+
+<div class="ti tr"><div class="tb">14:30 — 15:20</div><div class="tt">🚗 西向回京都・還車</div><div class="td">走名神高速，約50分鐘回京都東寺附近。</div></div>
+
+<div class="ti hl"><div class="tb">約 15:30</div><div class="tt">🚗 還車（住宿旁）</div><div class="td">Jo Cars 於住宿 Kyo-Machiya Inn Toji 旁回收車輛。ETC 通行費現金結算。<br>📞 <a href="tel:+886982899279">+886 982-899-279</a></div><div class="tags"><span class="tag">ETC費現金結算</span></div></div>
+
+<div class="ti ml"><div class="tb">17:00 之後</div><div class="tt">🥩 晚餐・町家自煮近江牛</div><div class="td">在ミオズ買的和牛，回町家自己料理。Day 4 最完美的收尾。</div></div>
+</div>
+<div class="map-wrap"><div class="map-label">📍 Day 4 地圖</div><div class="gmap" id="map-d4"></div></div>
+</div></section>
+
+<!-- DAY 5 -->
+
+<section class="ds" id="d5"><div class="c">
+<div class="dh"><div class="dl">Day 5 — 3月7日（六）</div><div class="dt">梅小路市集＋錦市場＋書店＋唱片行</div><div class="dsu">Umekoji Market · Nishiki · Keibunsha · Records</div></div>
+<div class="tip"><strong>💡 動線：</strong>早上Cafe AUSGANG（島原）→ 梅小路市集（南區）→ 錦市場（中京）→ 午餐 → 下午書店巡迴：惠文社一乘寺（左京）→ Cava Books → 誠光社 → 蔦屋 → 唱片行（Meditations / Joe's Garage）→ 斗々屋（中京）→ 回家。書店＋唱片行是今天的主軸。</div>
+<div class="tl">
+<div class="ti hl"><div class="tb">07:00</div><div class="tt">☕ 早餐：Cafe AUSGANG</div><div class="td">きんせ旅館1F，築250年揚屋建築裡的早餐咖啡。Art Deco彩繪玻璃、手作貝果。島原地區，從町家步行約15分鐘。<a href="https://maps.google.com/?q=Cafe+AUSGANG+きんせ旅館+京都" target="_blank">📍 地圖</a><br>🕐 7:00–14:00｜<strong>週日・週四休→3/7六有開 ✅</strong></div><div class="tags"><span class="tag g">Hidden Gem Café</span></div></div>
+<div class="ti hl"><div class="tb">09:00 — 11:00</div><div class="tt">🎪 梅小路公園手作市集</div><div class="td">每月第一個週六固定舉辦。手工藝品、陶器、木工、古道具。寶寶可以在草地上爬。<a href="https://maps.google.com/?q=梅小路公園+手づくり市" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag">每月第一個週六</span></div></div>
+<div class="ti"><div class="tb">11:30</div><div class="tt">🐟 錦市場</div><div class="td">「京都的廚房」，中午前較不擁擠。串物、漬物、豆乳甜甜圈邊走邊吃。<a href="https://maps.google.com/?q=錦市場+京都" target="_blank">📍 地圖</a></div></div>
+<div class="ti ml"><div class="tb">12:30</div><div class="tt">🍽️ 午餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ 午餐建議：</strong><br>
+<em>Good Good Not Bad Kyoto</em> — Monocle 推薦。四條運河旁咖啡，適合輕食。<a href="https://maps.google.com/?q=Good+Good+Not+Bad+Kyoto" target="_blank">📍</a><br>
+<em>Sushi Suehiro 末廣</em> — Monocle 推薦。200年老店京都風鯖壽司，押壽司，不是迴轉壽司。<a href="https://maps.google.com/?q=末廣+鯖寿司+京都" target="_blank">📍</a><br>
+<em>錦市場邊走邊吃</em> — 逛完錦市場就飽了也不用勉強坐下來。</div>
+<div class="tl">
+<div class="ti hl"><div class="tb">13:30 — 16:30</div><div class="tt">📚 書店巡迴 <span class="new-badge">加入惠文社</span></div><div class="td">
+<strong>惠文社一乘寺店</strong>（今日主打）— Guardian 選為世界十大最美書店。獨立選書、藝術雜貨，人文氣息極重。<strong>搭乘叡山電鐵到一乘寺站</strong>（出町柳轉）。<a href="https://maps.google.com/?q=恵文社一乗寺店" target="_blank">📍</a><br><br>
+→ <strong>Cava Books</strong>（攝影・設計・zine）<a href="https://maps.google.com/?q=Cava+Books+京都" target="_blank">📍</a><br>
+→ <strong>京都岡崎蔦屋書店</strong>（建築空間本身值得看）<a href="https://maps.google.com/?q=京都岡崎蔦屋書店" target="_blank">📍</a><br>
+→ <strong>誠光社 Seikosha</strong>（古書・版畫・獨立出版）<a href="https://maps.google.com/?q=誠光社+京都" target="_blank">📍</a>
+</div></div>
+
+<div class="ti hl"><div class="tb">16:30 — 18:00</div><div class="tt">🎵 唱片行巡迴 <span class="new-badge">主排</span></div><div class="td">
+<strong>⭐ Meditations</strong>（主推・環境音/實驗/爵士）週三–日 13:00 開 ✅ <a href="https://maps.google.com/?q=Meditations+records+京都" target="_blank">📍</a><br>
+<strong>⭐ Joe's Garage</strong>（主推・punk/rock/soul）週三–日 13:00 開 ✅ <a href="https://maps.google.com/?q=Joe's+Garage+records+京都" target="_blank">📍</a><br>
+<em>Art Rock No.1 / Parallax Records / Jazzy Sport</em> — 彈性加入<br>
+<span style="font-size:.78rem;color:var(--stone)">Art Rock: <a href="https://maps.google.com/?q=京都市中京区白壁町442+FSSビル4F" target="_blank">📍 中京区麩屋町三条 FSSビル4F</a>・Parallax: <a href="https://maps.google.com/?q=京都市中京区桜之町407-1+詩の小路ビル2F" target="_blank">📍 新京極 詩の小路2F</a>・Jazzy Sport: <a href="https://maps.google.com/?q=京都市東山区弁財天町19+Y+gion+5F" target="_blank">📍 祇園 Y gion 5F</a></span>
+</div></div>
+
+<div class="ti hl"><div class="tb">18:00</div><div class="tt">🌿 斗々屋 Totoya — Zero Waste Market</div><div class="td">京都最具代表性的有機・零廢棄超市。散裝穀物・有機蔬果・自然酒・純素熟食。可買些食材晚上在町家料理。📞 075-221-8282<br>🕐 10:00–19:00｜<strong>週四休→3/7六有開 ✅</strong><br><a href="https://maps.google.com/?q=斗々屋+Totoya+Zero+Waste+京都" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag g">老婆精選</span></div></div>
+</div>
+
+<div class="tl">
+<div class="ti"><div class="tb">16:30</div><div class="tt">🍞 ナカガワ小麦店</div><div class="td">下鴨神社旁。店主用石臼現磨有機小麥，每天只出17種麵包。買回去當隔天早餐。<a href="https://maps.google.com/?q=ナカガワ小麦店+京都" target="_blank">📍 地圖</a><br>🕐 10:00–16:00（賣完提早關）｜<strong>週一二三休→3/7六有開 ✅</strong></div><div class="tags"><span class="tag g">Hidden Gem</span><span class="tag gr">賣完為止</span></div></div>
+<div class="ti"><div class="tb">17:00</div><div class="tt">🍡 出町ふたば</div><div class="td">名代豆餅（豆大福），永遠排隊但值得。1歲寶寶可嘗一小口。<a href="https://maps.google.com/?q=出町ふたば+京都" target="_blank">📍 地圖</a></div></div>
+<div class="ti ml"><div class="tb">18:30</div><div class="tt">🍽️ 晚餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ 晚餐建議：</strong><br>
+<em>丹 Tan</em> — <strong>Monocle 推薦 + Michelin Bib Gourmand。</strong>三條白川橋旁，丹後半島食材的小台所，氛圍溫暖如到朋友家吃飯。🕐 18:00–21:00 LO｜<strong>週一休→3/7六有開 ✅</strong>｜📞 075-533-7744（<strong>建議預約</strong>）<a href="https://maps.google.com/?q=丹+Tan+三条白川+京都" target="_blank">📍</a><br>
+<em>Dupree</em> — Monocle 推薦。岡崎地區，炭烤料理＋自然酒，蠟燭照明很有氣氛。<a href="https://maps.google.com/?q=Dupree+岡崎+京都" target="_blank">📍</a></div>
+<div class="map-wrap"><div class="map-label">📍 Day 5 地圖</div><div class="gmap" id="map-d5"></div></div>
+</div></section>
+
+<!-- DAY 6 -->
+
+<section class="ds" id="d6"><div class="c">
+<div class="dh"><div class="dl">Day 6 — 3月8日（日）</div><div class="dt">東寺ガラクタ市＋天授庵＋無鄰庵＋西陣溫泉</div><div class="dsu">Toji Flea Market · Tenjuan · Murinan · Sarasa · Funaoka Onsen</div></div>
+<div class="tip"><strong>💡 動線：</strong>早上東寺ガラクタ市（町家旁步行即到）→ 午餐 → 地鐵到蹴上 → 天授庵 → 步行5分鐘到無鄰庵 → 地鐵往西陣 → Sarasa 銭湯咖啡 → 船岡溫泉 → 晚餐。南→東→北，收尾在西陣泡湯，今天最完美。</div>
+<div class="tl">
+<div class="ti"><div class="tb">任何早上順路</div><div class="tt">🏛️ 東本願寺渡廊下</div><div class="td">走到京都站的路上。巨大木造建築間的空中走廊，免費，低調震撼。<a href="https://maps.google.com/?q=東本願寺" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag g">Hidden Gem</span><span class="tag gr">免費</span></div></div>
+<div class="ti hl"><div class="tb">07:00 — 11:00</div><div class="tt">🏺 東寺ガラクタ市（古道具市）</div><div class="td">每月第一個週日固定舉辦。比弘法市更 raw——舊工具、古陶器、昭和雜貨、和服布料。七點去最好挖。<a href="https://maps.google.com/?q=東寺+ガラクタ市" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag">每月第一個週日</span></div></div>
+<div class="ti ml"><div class="tb">12:00</div><div class="tt">🍽️ 午餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ 午餐建議：</strong><br>
+<em>村上開新堂</em> — Monocle 推薦。1907年京都最古老西式菓子店，俄羅斯蛋糕（果醬餅乾）、Florentine、橙子果凍。午茶甜點性質。<a href="https://maps.google.com/?q=村上開新堂+京都" target="_blank">📍</a><br>
+<em>丹 Tan 午餐</em> — 如果前一晚沒去，午餐也開（12:00–14:00 LO）。📞 075-533-7744<a href="https://maps.google.com/?q=丹+Tan+三条白川+京都" target="_blank"> 📍</a></div>
+<div class="tl">
+<div class="ti hl"><div class="tb">13:30</div><div class="tt">🍃 天授庵 Tenjuan</div><div class="td">南禪寺塔頭。前庭枯山水＋後院池泉回遊式庭園，¥500，人少安靜。<a href="https://maps.google.com/?q=天授庵+南禅寺" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag g">庭園</span></div></div>
+<div class="ti hl"><div class="tb">14:15</div><div class="tt">🌿 無鄰庵 Murinan</div><div class="td">山縣有朋別邸庭園，借景東山，¥600。<strong>需線上預約時段</strong>（murin-an.jp）。天授庵步行5分鐘。<a href="https://maps.google.com/?q=無鄰庵+京都" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag">需線上預約</span><span class="tag g">庭園</span></div></div>
+
+<div class="ti hl"><div class="tb">16:30</div><div class="tt">☕ Sarasa 西陣（元銭湯カフェ）<span class="new-badge">移入</span></div><div class="td">1930年代昭和錢湯改建。唐破風屋頂、男湯女湯隔牆 majolica 磁磚完整保留。從無鄰庵搭地鐵往西陣約20分鐘。<a href="https://maps.google.com/?q=さらさ西陣+京都" target="_blank">📍 地圖</a><br>🕐 11:30–21:00（五六到22:00）｜<strong>週三休→3/8日有開 ✅</strong></div><div class="tags"><span class="tag g">Hidden Gem Café</span></div></div>
+
+<div class="ti hl"><div class="tb">18:00</div><div class="tt">♨️ 船岡溫泉<span class="new-badge">移入</span></div><div class="td">Sarasa 步行3分鐘。昭和初期木造澡堂，¥490。一家人泡完全身暖和，帶寶寶的隔天節奏更好。<a href="https://maps.google.com/?q=船岡温泉+京都" target="_blank">📍 地圖</a><br>🕐 15:00–深夜1:00｜無休 ✅</div></div>
+
+<div class="ti ml"><div class="tb">19:30</div><div class="tt">🍽️ 晚餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ 晚餐建議：</strong><br>
+<em>手打蕎麥 かね井 Kanei</em> — Monocle 推薦。紫野東藤之町，夫妻經營的蕎麥麵小店，塌塌米座位＋庭園景觀，國產蕎麥粉手切細麵，簡樸又講究。<a href="https://maps.google.com/?q=手打ちそば+かね井+京都" target="_blank">📍</a>（西陣步行圈，今晚最順）<br>
+<em>Pizza Tane</em> — Monocle 推薦。街角季節酸種披薩，跟一般 pizzeria 完全不同路線。<a href="https://maps.google.com/?q=Pizza+Tane+京都" target="_blank">📍</a></div>
+<div class="map-wrap"><div class="map-label">📍 Day 6 地圖</div><div class="gmap" id="map-d6"></div></div>
+</div></section>
+
+<!-- DAY 7 -->
+
+<section class="ds" id="d7"><div class="c">
+<div class="dh"><div class="dl">Day 7 — 3月9日（一）</div><div class="dt">製麵體驗＋河井寬次郎＋中京職人</div><div class="dsu">Musoshin Noodles · Kawai Kanjiro · Nakagyo Craftsmen</div></div>
+<div class="tip"><strong>💡 動線：</strong>上午祇園（製麵體驗）→ 步行10分鐘到東山五條（河井寬次郎）→ 中午休息 → 下午中京三條通（辻和金網＋職人街）→ 傍晚自由漫步。今天是<strong>手感日</strong>——早上親手做麵，下午看師傅編金網，兩個體驗節奏一致，節奏不趕。</div>
+<div class="tl">
+<div class="ti ml"><div class="tb">08:30</div><div class="tt">☕ 慢早餐</div><div class="td">町家附近隨意找一間喫茶店，或在家準備出發。</div></div>
+
+<div class="ti hl"><div class="tb">10:30 — 12:30</div><div class="tt">🍜 無双心 Musoshin 製麵體驗 <span class="new-badge">移入</span></div><div class="td">祇園的手打蕎麥麵工房。自己揉麵、切麵、煮麵，最後現場吃。約1–2小時含午餐。<a href="https://maps.google.com/?q=無双心+祇園+京都" target="_blank">📍 地圖</a><br><strong>需預約</strong>（ActivityJapan 線上，建議提早訂）</div><div class="tags"><span class="tag">需預約</span></div></div>
+
+<div class="ti hl"><div class="tb">13:00 — 13:45</div><div class="tt">🏺 河井寬次郎紀念館 <span class="new-badge">移入</span></div><div class="td">民藝運動核心人物的故居兼工作室。保留登窯、轆轤、書齋。從製麵工房祇園步行10分鐘。¥900。<strong>週一休→3/9一…⚠️ 需確認！</strong> 若週一休則改到 Day 8 出發前繞路。<a href="https://maps.google.com/?q=河井寛次郎記念館" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag gr">⚠️ 確認週一是否開放</span></div></div>
+
+<div class="ti ml"><div class="tb">14:00</div><div class="tt">🍽️ 午後咖啡 or 輕食</div></div>
+</div>
+<div class="mn"><strong>🍽️ 午餐建議：</strong><br>
+<em>製麵體驗本身含午餐</em>，若時間早結束可找附近咖啡。<br>
+<em>Ao Onigiri 青おにぎり</em> — 現釜炊白飯手捏，外帶邊走邊吃。<a href="https://maps.google.com/?q=青おにぎり+京都" target="_blank">📍</a></div>
+<div class="tl">
+<div class="ti hl"><div class="tb">14:30</div><div class="tt">🚶 中京 三條通・御幸町 + Ken 職人私房</div><div class="td">三条通、御幸町通、姉小路通一帶——獨立眼鏡店、手工皮革、咖啡焙煎所，京都設計密度最高的街區。以下三間 Ken 推薦的職人老店全在這個圈子裡：<br><br>
+🔧 <strong>辻和金網</strong> — 昭和2年創業手編金網職人工房。龜甲編技法打造的咖啡濾杯、烤網、茶篩，日劇「ちょっと京都に住んでみた」女主角愛用品。入內可見師傅現場編網。<strong>9:00–18:00・日祝休→週一有開 ✅</strong>｜📞 075-231-7368 <a href="https://maps.google.com/?q=辻和金網+中京区+京都" target="_blank">📍</a><br>
+🫘 <strong>麩嘉本店（Fuka Honten）</strong> — 150年生麩專賣。只賣給寺院和茶道的素材，一般旅客平時看不到的地方。可買生麩做晚餐食材。<a href="https://maps.google.com/?q=麩嘉本店+京都+中京" target="_blank">📍</a><br>
+☕ <strong>COFFEE ユニオン</strong> — 1953年創業昭和純喫茶，烏丸御池室町通。日劇同款復古空間，招牌玉子吐司。<strong>週六・日・祝休→週一有開 ✅</strong>・全席吸煙可（帶嬰兒注意）<a href="https://maps.google.com/?q=COFFEE+ユニオン+京都+中京区+室町" target="_blank">📍</a>
+</div></div>
+
+<div class="ti ml"><div class="tb">18:30</div><div class="tt">🍽️ 晚餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ 晚餐建議：</strong><br>
+<em>SFERA Caffè</em> — 清水坂通設計選物空間，義式輕食，老建築改建有庭院，嬰兒完全可入。<a href="https://maps.google.com/?q=SFERA+京都" target="_blank">📍</a><br>
+<em>中京區居酒屋</em> — 服務本地上班族的居酒屋，晚上六點後煙火氣十足，憑直覺走進去。</div>
+
+<div class="alert"><strong>⚠️ 河井寬次郎紀念館週一確認：</strong>原 HTML 標注「週一休→3/10二有開」，移到 Day 7（週一）前請電話確認是否例外開放，或移到 Day 8 出發前繞路（距 Style Coffee 約20分鐘）。<br>📞 075-561-3585</div>
+
+<div class="map-wrap"><div class="map-label">📍 Day 7 地圖</div><div class="gmap" id="map-d7"></div></div>
+</div></section>
+
+<!-- DAY 8 -->
+
+<section class="ds" id="d8"><div class="c">
+<div class="dh"><div class="dl">Day 8 — 3月10日（二）</div><div class="dt">高山寺＋嵐山＋Snow Peak <span class="new-badge">重組</span></div><div class="dsu">Style Coffee · Kosanji · Arashiyama · Snow Peak · かね正</div></div>
+<div class="tip"><strong>💡 動線：</strong>上京 Style Coffee → 西北山里高山寺（栂尾）→ 嵐山（15分鐘車程）→ Snow Peak → 回東山 → かね正最後晚餐。<strong>完整的西北弧線</strong>，一路不走回頭路，節奏舒緩，高山寺的山林空氣最適合帶一歲寶寶。</div>
+<div class="tl">
+<div class="ti hl"><div class="tb">08:30</div><div class="tt">☕ Style Coffee — 出發前的一杯</div><div class="td">極簡空間・自家烘焙精品咖啡，外帶一杯再出發。📞 075-254-8090<br>🕐 平日 8:30–17:00｜<strong>月・金休→3/10二有開 ✅</strong><br><a href="https://maps.google.com/?q=Style+Coffee+Kyoto+上京区" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag g">老婆精選</span></div></div>
+
+<div class="ti hl"><div class="tb">09:30 — 11:30</div><div class="tt">🌿 高山寺（Ken 強力推薦）<span class="new-badge">加入</span></div><div class="td">日本最古茶園發源地・第一幅漫畫《鳥獸戲畫》・明惠上人的清靜道場。在京都山裡，台灣旅客幾乎不去。沒有觀光客，置身其中神清氣爽。<br>🚗 Style Coffee → 高山寺：約30分鐘（走周山街道往栂尾方向）<br>🕐 8:30–17:00・入山料¥1,000｜無固定休館日 ✅<br><a href="https://maps.google.com/?q=高山寺+京都+右京区" target="_blank">📍 地圖</a></div><div class="tags"><span class="tag g">Ken 強力推薦</span><span class="tag g">日本最古茶園</span></div></div>
+
+<div class="ti tr"><div class="tb">11:30 — 11:50</div><div class="tt">🚗 高山寺 → 嵐山</div><div class="td">15–20分鐘車程，同方向（西北→嵐山），完全順路。</div></div>
+
+<div class="ti ml"><div class="tb">12:00</div><div class="tt">🍽️ 嵐山午餐</div></div>
+</div>
+<div class="mn"><strong>🍽️ 嵐山午餐建議：</strong><br>
+<em>うなぎ廣川</em> — Ken 推薦・Michelin ⭐ 一星・全預約制。若要去必須提前預約（¥3,000保證金/人）。今天在嵐山，動線最順。<a href="https://maps.google.com/?q=うなぎ廣川+嵐山+京都" target="_blank">📍</a><br>
+<em>嵐山地區蕎麥麵</em> — 輕食方便帶寶寶。</div>
+<div class="tl">
+<div class="ti hl"><div class="tb">13:30 — 14:30</div><div class="tt">⛺ Snow Peak Land Station 京都嵐山</div><div class="td">百年傳統建築改造的旗艦體驗空間，全系列帳篷展示。可請店家安排國際配送回台灣。<a href="https://maps.google.com/?q=スノーピークランドステーション京都嵐山" target="_blank">📍 地圖</a><br>🕐 10:00–19:00｜📞 075-366-8954｜免稅對應</div><div class="tags"><span class="tag b">購物</span><span class="tag gr">可國際配送</span></div></div>
+<div class="ti tr"><div class="tb">15:00</div><div class="tt">🚃 JR 回京都</div><div class="td">嵯峨嵐山→京都站15分鐘。今晚是最後一晚，好好吃飯。</div></div>
+<div class="ti ml"><div class="tb">18:00</div><div class="tt">🍽️ 最後一晚，好好吃</div></div>
+</div>
+<div class="mn"><strong>🍽️ 最後一晚建議：</strong><br>
+<em>⭐ かね正 Kanesho</em> — Ken 雙重推薦・Michelin Bib Gourmand。150年老舖，祇園郵局旁隱密小巷，14席。きんし丼 ¥2,700（同級最實惠）。<strong>週四・日休→3/10二有開 ✅。強烈建議提前預約。</strong>📞 075-532-5830　🕐 11:30–14:00 / 17:30–22:00<a href="https://maps.google.com/?q=かね正+祇園+京都" target="_blank"> 📍</a><br>
+<em>草喰なかひがし</em> — Monocle 推薦。東丸太町，9席 counter 割烹，季節料理，需預約，價位偏高但這是最後一晚。<a href="https://maps.google.com/?q=草喰なかひがし+京都" target="_blank">📍</a><br>
+<em>丹 Tan</em> — 若之前都還沒去。3/10 週二有開。📞 075-533-7744<a href="https://maps.google.com/?q=丹+Tan+三条白川+京都" target="_blank"> 📍</a></div>
+<div class="map-wrap"><div class="map-label">📍 Day 8 地圖</div><div class="gmap" id="map-d8"></div></div>
+</div></section>
+
+<!-- DAY 9 -->
+
+<section class="ds" id="d9"><div class="c">
+<div class="dh"><div class="dl">Day 9 — 3月11日（三）</div><div class="dt">回家</div><div class="dsu">Kyoto → Kansai Airport T1 → Taoyuan T2</div></div>
+<div class="alert"><strong>⚠️ 退房 10:00 vs Haruka 09:30 時間衝突：</strong>需在 09:00 前到達京都站，但正式退房是 10:00。<br><strong>解決方案：</strong>前一晚（Day 8）整理好所有行李，3/11 一早先辦理退房，大件行李寄放住宿或京都站置物櫃，輕裝搭 Haruka。<strong>務必提前與房東溝通。</strong></div>
+<div class="tl">
+<div class="ti"><div class="tb">07:30</div><div class="tt">🧳 整理完畢</div><div class="td">寶寶物品最後確認（奶粉、尿布、備用衣物、藥品）。</div></div>
+<div class="ti tr"><div class="tb">08:30</div><div class="tt">🚕 計程車到京都站</div><div class="td">帶嬰兒＋行李建議搭計程車，約5–10分鐘，有餘裕。</div></div>
+<div class="ti hl"><div class="tb">09:30 — 10:54</div><div class="tt">🚃 Haruka No.15 → 關西空港</div><div class="td"><strong>上車前在 JR West App 點「立即使用」啟用車票！</strong><br>ID：497348・車廂 9・座位 1B<br>京都 09:30 → 關西空港 10:54<br><a href="https://maps.google.com/?q=京都駅+JR+はるか" target="_blank">📍 京都站</a></div><div class="tags"><span class="tag">上車前記得啟用車票！</span></div></div>
+<div class="ti"><div class="tb">10:54</div><div class="tt">🛬 抵達關西空港</div><div class="td">Haruka 直接停靠關西空港站，<strong>去程回程都是 T1</strong>（不需搭接駁巴士）。</div></div>
+<div class="ti"><div class="tb">11:00 — 12:00</div><div class="tt">🛃 T1 過海關・免稅</div><div class="td">哺乳室位於第一航廈三樓。<a href="https://maps.google.com/?q=関西国際空港+第1ターミナル" target="_blank">📍 T1 地圖</a></div></div>
+<div class="ti tr"><div class="tb">12:55</div><div class="tt">✈️ 飛回桃園</div><div class="td">EVA AIR BR131｜KIX T1 12:55 → TPE T2 15:05</div></div>
+<div class="ti"><div class="tb">15:05</div><div class="tt">🏠 抵達桃園 T2</div><div class="td">旅途結束，回家了。</div></div>
+</div>
+<div class="map-wrap"><div class="map-label">📍 Day 9 地圖</div><div class="gmap" id="map-d9"></div></div>
+</div></section>
+
+<!-- Ken 私房鰻魚飯 -->
+
+<section class="ds" id="ken-unagi" style="background:var(--warm)"><div class="c">
+<h2 class="st">🐟 Ken 私房鰻魚飯指南</h2>
+<div class="tip"><strong>💡 最便宜且最值得的一間：</strong>在4家中，<strong>かね正（¥2,700）</strong>性價比最高——米其林必比登肯定、150年職人工藝、同等品質最低價。Day 8 西北弧線回程後，搭JR回京都，步行即到，動線完美。</div>
+<div class="ro">
+<div class="rc"><div class="rn">⭐ かね正 <span class="tag g" style="font-size:.65rem">最推・Day 8</span></div><div class="rm">祇園巷弄150年老舖・Michelin Bib Gourmand<br>きんし丼 ¥2,700（14席・手現烤30分）<br>週四・日休 → 3/10二有開 ✅<br>📞 075-532-5830 <strong>強烈建議預約</strong><br><a href="https://maps.google.com/?q=かね正+祇園+京都" target="_blank">📍 地圖</a></div></div>
+<div class="rc"><div class="rn">京極かねよ <span class="tag gr" style="font-size:.65rem">備選</span></div><div class="rm">大正初期建築・昭和氛圍震撼<br>きんし丼（並）¥3,100<br>水曜休・可接受現場等位<br><a href="https://maps.google.com/?q=京極かねよ+京都+中京区" target="_blank">📍 地圖</a></div></div>
+<div class="rc"><div class="rn">うなぎ廣川 <span class="tag b" style="font-size:.65rem">嵐山・最高端</span></div><div class="rm">Michelin ⭐ 一星 · 全預約制<br>鰻重（時価）· ¥3,000保證金/人<br>Day 8 嵐山行程可安排<br><a href="https://maps.google.com/?q=うなぎ廣川+嵐山+京都" target="_blank">📍 地圖</a></div></div>
+<div class="rc"><div class="rn">🔐 鎌田川魚店 <span class="tag g" style="font-size:.65rem">Ken 私房・外帶</span></div><div class="rm">零觀光客・昭和老店外帶鰻魚<br>招牌「八幡卷」（鰻卷牛蒡）<br>上京區・靠近北野天滿宮<br>Day 5 北野繞路可順訪<br><a href="https://maps.google.com/?q=鎌田川魚店+京都+上京区" target="_blank">📍 地圖</a></div></div>
+</div>
+<div class="mn"><strong>🔐 Ken 另一推薦：川魚 のと正</strong> — 東山區弓屋町，外帶鰻魚便當+烤香魚，調味適中幾乎無刺。Day 8 かね正→のと正買外帶，兩點全在東山圈。<a href="https://maps.google.com/?q=川魚のと正+東山区+京都" target="_blank">📍</a></div>
+</div></section>
+
+<!-- 待辦清單 -->
+
+<section class="cls" id="todo"><div class="c">
+<h2 class="st">出發前待辦清單</h2>
+<ul class="cl">
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>確認 Jo Cars 多租一天・住宿旁還車</strong><div class="cd">3/6 在 Kyo-Machiya Inn Toji 附近還車・✅ 已確認</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>與琉璃心町家溝通 3/11 提早退房 <span class="ubadge">緊急</span></strong><div class="cd">正式退房 10:00，需 08:30 離開趕 Haruka 09:30・📞 +81 80-4494-3999</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>JR Haruka 車票確認 <span class="ubadge">緊急</span></strong><div class="cd">JR-WEST App・ID：497348・有效期 2025/03/17–2027/03/31・上車前點「立即使用」</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>Jo Cars 再次確認取車細節</strong><div class="cd">關西機場 P5 停車場・3/3 14:00・現金 ¥41,400・📞 +886 982-899-279</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>確認河井寬次郎紀念館週一（3/9）是否開放 <span class="ubadge">緊急</span></strong><div class="cd">移到 Day 7（週一），需確認是否例外開放・📞 075-561-3585。若週一休則調到 Day 8 出發前繞路（距 Style Coffee 約20分鐘）。</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>確認 Joe's Garage 週六（3/7）是否開門</strong><div class="cd">週三–日 13:00 開，3/7 週六應有開・最終出發前確認 IG 或電話</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>預約無鄰庵 3/8 下午時段</strong><div class="cd">murin-an.jp 線上預約</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>預約無双心製麵體驗 3/9 10:30 <span class="ubadge">改到 Day7</span></strong><div class="cd">ActivityJapan 線上，建議提早訂</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>預約 かね正 3/10（二）晚餐 <span class="ubadge">緊急</span></strong><div class="cd">📞 075-532-5830（11:30–14:00 / 17:30–22:00）・強烈建議提前預約，只有14席</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>電話預約 丹 Tan（若要去）</strong><div class="cd">📞 075-533-7744（11:00–12:00 或 14:30–15:30 打較好接）・週一休</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>確認 Sushi Suehiro 宮津是否需預約</strong><div class="cd">Day 2 晚餐・200年鯖壽司老店・建議提前確認</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>準備日幣現金</strong><div class="cd">租車 ¥41,400（取車時付）＋ ETC 通行費（還車時付）＋旅費至少 ¥50,000+</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>Google Maps 關西全域離線地圖</strong><div class="cd">出發前在 Wi-Fi 環境下載，宮津山區訊號偶爾不穩</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>Snow Peak 國際配送方式確認</strong><div class="cd">3/10 現場確認可行性・📞 075-366-8954</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>SIM 卡 / Wi-Fi 分享器</strong><div class="cd">建議日本 eSIM，宮津段確認覆蓋</div></div></li>
+<li><div class="ci" onclick="chk(this)"></div><div class="cc"><strong>海外旅遊保險（含嬰兒）</strong><div class="cd">確認嬰兒在保險範圍內</div></div></li>
+</ul>
+</div></section>
+
+<footer class="footer">
+<div class="fq">「如果它正在流行，我們大概正看向另一邊。」</div>
+<p>京都・宮津家族旅行 2026.03.03 — 03.11<br>Shiao Family Trip</p>
+<p style="margin-top:1rem;opacity:.5">Safe Travels ✈️</p>
+</footer>
+
+<script>
+function chk(el){
+  el.classList.toggle('done');
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+}
+</script>
+
+<script>
+const DAYS = {
+  'd1': {
+    center: {lat: 35.1800, lng: 135.0000}, zoom: 8, color: '#c2432e',
+    places: [
+      {lat:34.4320,lng:135.2381,title:'① 關西國際機場 T1',info:'EVA BR132 抵達 11:55'},
+      {lat:34.4340,lng:135.2320,title:'② Jo Cars P5 停車場',info:'14:00 取車・現金 ¥41,400'},
+      {lat:35.5367,lng:135.1958,title:'③ 三上勘兵衛本店',info:'入住 15:00・確認碼 HMQHYXM9CW'},
+    ]
+  },
+  'd2': {
+    center: {lat:35.6200,lng:135.2200}, zoom: 11, color: '#e07b2a',
+    places: [
+      {lat:35.5603,lng:135.1797,title:'① 天橋立 松林散步',info:'日本三景・沿松林漫步'},
+      {lat:35.6867,lng:135.2697,title:'② 伊根舟屋・遊覽船',info:'重傳建地區・搭船約30分'},
+      {lat:35.6875,lng:135.2703,title:'③ 道の駅 舟屋の里伊根',info:'在地海鮮丼・午餐'},
+    ]
+  },
+  'd3': {
+    center: {lat:35.2000,lng:135.5000}, zoom: 8, color: '#5a6b4a',
+    places: [
+      {lat:35.5367,lng:135.1958,title:'① 三上勘兵衛本店（退房）',info:'宮津出發南下'},
+      {lat:34.9838,lng:135.7501,title:'② 琉璃心町家（入住6晚）',info:'確認碼 HMJCRZ3QDA・入住15:00'},
+      {lat:34.9810,lng:135.7474,title:'③ 東寺 五重塔',info:'黃昏散步・步行即到'},
+    ]
+  },
+  'd4': {
+    center: {lat:35.18,lng:136.05}, zoom: 10, color: '#2a6b9a',
+    places: [
+      {lat:34.9838,lng:135.7501,title:'① 出發 琉璃心町家',info:'08:00 出發'},
+      {lat:35.2752,lng:136.0113,title:'② 白鬚神社',info:'09:15・湖上水上鳥居・24小時'},
+      {lat:35.1106,lng:135.9225,title:'③ 満月寺浮御堂',info:'10:40・湖上佛堂・8:00–17:00'},
+      {lat:35.1282,lng:136.0989,title:'④ 近江八幡 八幡堀',info:'12:10・歷史水路・午餐'},
+      {lat:35.0358,lng:135.9822,title:'⑤ ミオズミートショップ・栗東',info:'13:50・近江牛外帶・10:00–18:00'},
+      {lat:34.9838,lng:135.7501,title:'⑥ 還車・琉璃心町家旁',info:'約 15:30'},
+    ]
+  },
+  'd5': {
+    center: {lat:35.0200,lng:135.7650}, zoom: 12, color: '#7a5c9a',
+    places: [
+      {lat:34.9965,lng:135.7469,title:'① Cafe AUSGANG',info:'7:00–14:00・週日四休'},
+      {lat:34.9882,lng:135.7390,title:'② 梅小路公園 手作市集',info:'每月第一個週六・9:00–11:00'},
+      {lat:35.0049,lng:135.7648,title:'③ 錦市場',info:'「京都的廚房」'},
+      {lat:35.0493,lng:135.7927,title:'④ 惠文社一乘寺店',info:'世界十大最美書店'},
+      {lat:35.0070,lng:135.7690,title:'⑤ Cava Books + 誠光社 + 蔦屋',info:'書店巡迴'},
+      {lat:35.0100,lng:135.7680,title:'⑥ Meditations + Joe\'s Garage ⭐',info:'唱片行・週三–日 13:00開'},
+      {lat:35.0195,lng:135.7695,title:'⑦ 斗々屋 Totoya',info:'有機零廢棄超市・10:00–19:00'},
+    ]
+  },
+  'd6': {
+    center: {lat:35.0100,lng:135.7600}, zoom: 13, color: '#2a8a6a',
+    places: [
+      {lat:34.9810,lng:135.7474,title:'① 東寺 ガラクタ市',info:'每月第一個週日・7:00–11:00'},
+      {lat:34.9929,lng:135.7543,title:'② 東本願寺 渡廊下',info:'免費・順路'},
+      {lat:35.0117,lng:135.7929,title:'③ 天授庵 Tenjuan',info:'南禪寺塔頭・¥500'},
+      {lat:35.0108,lng:135.7907,title:'④ 無鄰庵 Murinan',info:'借景東山・¥600・需預約'},
+      {lat:35.0336,lng:135.7428,title:'⑤ Sarasa 西陣',info:'昭和錢湯改建咖啡・16:30'},
+      {lat:35.0330,lng:135.7432,title:'⑥ 船岡溫泉',info:'¥490・15:00–深夜1:00'},
+    ]
+  },
+  'd7': {
+    center: {lat:35.0020,lng:135.7740}, zoom: 14, color: '#b85c2a',
+    places: [
+      {lat:35.0030,lng:135.7760,title:'① 無双心 Musoshin',info:'手打蕎麥製麵體驗・需預約・10:30'},
+      {lat:34.9993,lng:135.7762,title:'② 河井寬次郎紀念館',info:'⚠️確認週一是否開放・¥900'},
+      {lat:35.0094,lng:135.7700,title:'③ 中京 辻和金網 + 職人街',info:'三條通・御幸町・14:30'},
+    ]
+  },
+  'd8': {
+    center: {lat:35.05,lng:135.69}, zoom: 12, color: '#4a6a9a',
+    places: [
+      {lat:35.0032,lng:135.7753,title:'① Style Coffee',info:'08:30・外帶咖啡出發'},
+      {lat:35.1083,lng:135.6581,title:'② 高山寺',info:'09:30・日本最古茶園・Ken強推・¥1,000'},
+      {lat:35.0148,lng:135.6724,title:'③ Snow Peak 嵐山',info:'13:30・旗艦店・可國際配送'},
+      {lat:35.0030,lng:135.7760,title:'④ かね正（晚餐）',info:'18:00・Michelin Bib・需預約'},
+    ]
+  },
+  'd9': {
+    center: {lat:34.7000,lng:135.5000}, zoom: 9, color: '#8a8578',
+    places: [
+      {lat:34.9838,lng:135.7501,title:'① 琉璃心町家（退房）',info:'⚠️需前一晚整理好行李'},
+      {lat:34.9858,lng:135.7542,title:'② 京都站',info:'Haruka No.15・09:30發車・記得啟用車票'},
+      {lat:34.4320,lng:135.2381,title:'③ 關西國際機場 T1',info:'10:54抵達・BR131 12:55飛回桃園'},
+    ]
+  }
+};
+
+function initMaps() {
+  const mapStyle = [
+    {featureType:'poi',elementType:'labels',stylers:[{visibility:'off'}]},
+    {featureType:'transit',elementType:'labels',stylers:[{visibility:'off'}]},
+    {featureType:'road',elementType:'geometry',stylers:[{color:'#f0ede8'}]},
+    {featureType:'water',elementType:'geometry',stylers:[{color:'#c9dde8'}]},
+    {featureType:'landscape',elementType:'geometry',stylers:[{color:'#f5f1eb'}]},
+  ];
+  Object.keys(DAYS).forEach(dayId => {
+    const el = document.getElementById('map-' + dayId);
+    if (!el) return;
+    const d = DAYS[dayId];
+    const map = new google.maps.Map(el, {
+      center: d.center, zoom: d.zoom, styles: mapStyle,
+      mapTypeControl: false, streetViewControl: false,
+      fullscreenControl: true, zoomControl: true,
+    });
+    const infoWindow = new google.maps.InfoWindow();
+    const path = [];
+    d.places.forEach((p, i) => {
+      const marker = new google.maps.Marker({
+        position: {lat: p.lat, lng: p.lng}, map, title: p.title,
+        label: {text: String(i + 1), color: '#fff', fontSize: '11px', fontWeight: '700'},
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE, scale: 14,
+          fillColor: d.color, fillOpacity: 1,
+          strokeColor: '#fff', strokeWeight: 2,
         }
+      });
+      path.push({lat: p.lat, lng: p.lng});
+      marker.addListener('click', () => {
+        infoWindow.setContent(
+          '<div style="font-family:\'Noto Sans TC\',sans-serif;max-width:180px">' +
+          '<div style="font-weight:700;font-size:13px;margin-bottom:4px">' + p.title + '</div>' +
+          '<div style="font-size:12px;color:#666">' + p.info + '</div></div>'
+        );
+        infoWindow.open(map, marker);
+      });
+    });
+    new google.maps.Polyline({
+      path, geodesic: true,
+      strokeColor: d.color, strokeOpacity: 0.6, strokeWeight: 2.5, map
+    });
+  });
+}
+</script>
 
-        window.onload = function() {
-            const savedUrl = localStorage.getItem('googleSheetsApiUrl');
-            if (savedUrl) {
-                document.getElementById('apiUrl').value = savedUrl;
-            }
-        };
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvNJpnzcw3lclpMH4IgKtkSjeiEg-Rc8s&callback=initMaps&language=zh-TW"></script>
 
-        document.getElementById('surveyForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const apiUrl = localStorage.getItem('googleSheetsApiUrl');
-            if (!apiUrl) {
-                alert('❌ 請先設定 Google Sheets API 網址');
-                return;
-            }
-
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = '⏳ 送出中...';
-
-            const formData = new FormData(this);
-            const data = {};
-            
-            data.timestamp = new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei'});
-            
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
-            }
-
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-
-                document.getElementById('surveyForm').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-                
-                setTimeout(() => {
-                    location.reload();
-                }, 3000);
-
-            } catch (error) {
-                alert('❌ 送出失敗：' + error.message);
-                submitBtn.disabled = false;
-                submitBtn.textContent = '📤 送出問卷';
-            }
-        });
-    </script>
 </body>
 </html>
